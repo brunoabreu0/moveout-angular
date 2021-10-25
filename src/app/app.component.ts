@@ -1,4 +1,12 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {
+  faTasks,
+  faList,
+  faCloudDownloadAlt,
+  faEdit
+} from '@fortawesome/free-solid-svg-icons';
+
+declare let $: any;
 
 @Component({
   selector: 'app-root',
@@ -6,5 +14,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'moveout';
+  iconCloudDownload = faCloudDownloadAlt;
+  iconList = faList;
+  iconTasks = faTasks;
+  iconEdit = faEdit;
+
+  ngOnInit() {
+    $('body').addClass('df');
+  }
 }

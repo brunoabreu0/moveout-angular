@@ -1,0 +1,60 @@
+<h4 *ngIf="!submitted"><fa-icon class="mr-1" [icon]="iconEdit"></fa-icon> Nova Requisição</h4>
+<div class="submit-form mt-5">
+  <div *ngIf="!submitted">
+    <div class="form-group">
+      <label for="dbName"><fa-icon class="mr-1" [icon]="iconDatabase"></fa-icon> Nome do banco de dados</label>
+      <input
+        type="text"
+        class="form-control"
+        id="dbName"
+        required
+        [(ngModel)]="requisitionBody.dbName"
+        name="dbName"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="tableName"><fa-icon class="mr-1" [icon]="iconTable"></fa-icon> Nome da tabela</label>
+      <input
+        class="form-control"
+        id="tableName"
+        required
+        [(ngModel)]="requisitionBody.tableName"
+        name="tableName"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="filterClause"><fa-icon class="mr-1" [icon]="iconFilter"></fa-icon> Filtro</label>
+      <input
+        class="form-control"
+        id="filterClause"
+        required
+        [(ngModel)]="requisitionBody.filterClause"
+        name="filterClause"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="selectedColumns"><fa-icon class="mr-1" [icon]="iconColumns"></fa-icon> Colunas Selecionadas</label>
+      <input
+        class="form-control"
+        id="selectedColumns"
+        required
+        [(ngModel)]="requisitionBody.selectedColumns"
+        name="selectedColumns"
+      />
+    </div>
+    <div class="form-group mt-5 text-right">
+      <button (click)="createRequisition()" class="btn btn-primary"><fa-icon class="mr-1" [icon]="iconPaperPlane"></fa-icon> Enviar Requisição</button>
+      <button class="btn btn-secondary ml-4" (click)="resetForm()"><fa-icon class="mr-1" [icon]="iconEraser"></fa-icon> Limpar</button>
+    </div>
+  </div>
+
+  <div *ngIf="submitted">
+    <div class="alert alert-success" role="alert">
+      <fa-icon class="mr-1" [icon]="iconClipboardCheck"></fa-icon> Requisição #{{createdRequisitionId}} solicitada com sucesso.
+    </div>
+    <button class="btn btn-primary mt-4" (click)="resetForm()"><fa-icon class="mr-1" [icon]="iconEdit"></fa-icon> Nova Requisição</button>
+  </div>
+</div>
